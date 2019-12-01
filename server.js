@@ -5,14 +5,23 @@ const path = require('path');
 
 let app = express();
 
+// Express Parsing
 app.use(express.json());
 
+// Get MongoURI
 const db = config.get('mongoURI');
 
+// Database Connection
 mongoose.connect(db, { useNewUrlParser: true, useCreateIndex: true, useUnifiedTopology: true })
 .then(() => console.log('MongoDB Connected'))
 .catch(err => console.log(err));
 
+// Routes
+app.use('/api/bugs', require('./routes/api/bugs'));
+app.use('/api/users', require('./routes/api/users'));
+app.use('/api/auth', require('./routes/api/auth'));
+
+// Production
 if(process.env.NODE_ENV === 'production') {
     app.use(express.static('client/dist'));
 
