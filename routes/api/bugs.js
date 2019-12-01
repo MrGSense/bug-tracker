@@ -19,8 +19,7 @@ router.get('/', (req,res) => {
 router.post('/', auth, (req, res) => {
     const newBug = new Bug({
         bug_title: req.body.title,
-        bug_description: req.body.description,
-        user: req.body.user
+        bug_description: req.body.description
     });
     newBug.save().then(bug => res.json(bug));
 });

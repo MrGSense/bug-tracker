@@ -24,7 +24,8 @@ router.post('/', (req, res) => {
         if(user) return res.status(400).json({ msg: 'User already exists' });
 
         const newUser = new User({
-            name,
+            firstName,
+            lastName,
             email,
             password
         });
@@ -46,7 +47,8 @@ router.post('/', (req, res) => {
                                 token,
                                 user: {
                                     id: user.id,
-                                    name: user.name,
+                                    firstName: user.firstName,
+                                    lastName: user.lastName,
                                     email: user.email
                                 }
                         });
