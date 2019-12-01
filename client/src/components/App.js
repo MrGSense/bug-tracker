@@ -1,12 +1,15 @@
 import React, { Component } from 'react';
+
+import { Provider } from './bug-tracker/context';
+
 import './styles/app.css';
 
 class App extends Component {
     render() {
         return (
-            <div className="App">
-            
-            </div>
+            <Provider>
+                
+            </Provider>
         )
     }
 }

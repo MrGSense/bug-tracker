@@ -6,6 +6,10 @@ const BugSchema = new Schema({
         type: String,
         required: true
     },
+    bug_application: {
+        type: String,
+        required: true
+    },
     bug_description: {
         type: String,
         required: true
