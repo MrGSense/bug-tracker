@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import { Provider } from './bug-tracker/context';
+import { Provider } from './context';
 
 import './styles/app.css';
 
