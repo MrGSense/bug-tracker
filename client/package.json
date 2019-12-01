@@ -10,6 +10,8 @@
   "author": "Kyle Fetterhoff",
   "license": "ISC",
   "dependencies": {
+    "@material-ui/core": "^4.7.1",
+    "@material-ui/icons": "^4.5.1",
     "react": "^16.12.0",
     "react-dom": "^16.12.0"
   },
