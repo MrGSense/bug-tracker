@@ -19,7 +19,7 @@ router.get('/', (req,res) => {
 router.post('/', auth, (req, res) => {
     const newBug = new Bug({
         bug_title: req.body.title,
-        bug_application: req.body.application,
+        bug_project: req.body.project,
         bug_description: req.body.description
     });
     newBug.save().then(bug => res.json(bug));

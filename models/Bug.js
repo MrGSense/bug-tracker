@@ -6,7 +6,7 @@ const BugSchema = new Schema({
         type: String,
         required: true
     },
-    bug_application: {
+    bug_project: {
         type: String,
         required: true
     },
@@ -14,6 +14,7 @@ const BugSchema = new Schema({
         type: String,
         required: true
     },
+    comments: [],
     date: {
         type: Date,
         default: Date.now
