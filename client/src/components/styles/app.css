@@ -1,11 +1,9 @@
 * {
   margin: 0;
   padding: 0;
-  -webkit-box-sizing: inherit;
-          box-sizing: inherit;
 }
 
 body {
-  font-family: sans-serif;
+  font-family: Roboto, sans-serif;
 }
 /*# sourceMappingURL=app.css.map */

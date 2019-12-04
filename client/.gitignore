@@ -4,6 +4,7 @@
 # may want to include if planning on deploying through github
 # dependencies
 node_modules
+package-lock.json
 
 # production
 dist

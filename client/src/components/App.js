@@ -1,15 +1,15 @@
 import React, { Component } from 'react';
 
-import { Provider } from './context';
+import Navbar from './bug-tracker/Navbar';
 
 import './styles/app.css';
 
 class App extends Component {
     render() {
         return (
-            <Provider>
-                
-            </Provider>
+            <div className="App">
+                <Navbar />
+            </div>
         )
     }
 }
