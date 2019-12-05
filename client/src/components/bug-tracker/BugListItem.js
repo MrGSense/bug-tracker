@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 
-class BugList extends Component {
+class BugListItem extends Component {
     render() {
         return (
-            <div className="BugList">
+            <div className="BugListItem">
                 
             </div>
         )
     }
 }
 
-export default BugList;
+export default BugListItem;
