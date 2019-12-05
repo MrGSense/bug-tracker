@@ -14,6 +14,7 @@ const BugSchema = new Schema({
         type: String,
         required: true
     },
+    solved: false,
     comments: [],
     date: {
         type: Date,
