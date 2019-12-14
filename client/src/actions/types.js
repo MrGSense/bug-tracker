@@ -1,0 +1,14 @@
+export const FETCH_BUGS = 'FETCH_BUGS';
+export const NEW_BUG = 'NEW_BUG';
+export const DELETE_BUG = 'DELETE_BUG';
+export const SOLVE_BUG = 'SOLVE_BUG';
+export const FETCH_POSTS = 'FETCH_POSTS';
+export const FETCH_POSTS = 'FETCH_POSTS';
+export const FETCH_POSTS = 'FETCH_POSTS';
+export const FETCH_POSTS = 'FETCH_POSTS';
+export const FETCH_POSTS = 'FETCH_POSTS';
+export const FETCH_POSTS = 'FETCH_POSTS';
+export const FETCH_POSTS = 'FETCH_POSTS';
+export const FETCH_POSTS = 'FETCH_POSTS';
+export const FETCH_POSTS = 'FETCH_POSTS';
+export const FETCH_POSTS = 'FETCH_POSTS';
