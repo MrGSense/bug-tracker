@@ -10,7 +10,7 @@ const User = require("../../models/User");
 // @route POST api/user
 // @desc Register user
 // @access Public
-router.post("/", (req, res) => {
+router.post("/", async (req, res) => {
   const { name, email, password } = req.body;
 
   // Simple validation
@@ -18,44 +18,44 @@ router.post("/", (req, res) => {
     return res.status(400).json({ msg: "Please enter all fields" });
   }
 
-  // Check for existing user
-  User.findOne({ email }).then(user => {
-    if (user) return res.status(400).json({ msg: "User already exists" });
+  try {
+    let user = await User.findOne({ email });
 
-    const newUser = new User({
-      firstName,
-      lastName,
+    if (user) {
+      return res.status(400).json({ msg: "User already exists" });
+    }
+
+    user = new User({
+      name,
       email,
       password
     });
 
-    // Create salt & hash
-    bcrypt.genSalt(10, (err, salt) => {
-      bcrypt.hash(newUser.password, salt, (err, hash) => {
+    const salt = await bcrypt.genSalt(10);
+
+    user.password = await bcrypt.hash(password, salt);
+
+    await user.save();
+
+    const payload = {
+      user: {
+        id: user.id
+      }
+    };
+
+    jwt.sign(
+      payload,
+      config.get("jwtSecret"),
+      { expiresIn: 3600 },
+      (err, token) => {
         if (err) throw err;
-        newUser.password = hash;
-        newUser.save().then(user => {
-          jwt.sign(
-            { id: user.id },
-            config.get("jwtSecret"),
-            { expiresIn: 3600 },
-            (err, token) => {
-              if (err) throw err;
-              res.json({
-                token,
-                user: {
-                  id: user.id,
-                  firstName: user.firstName,
-                  lastName: user.lastName,
-                  email: user.email
-                }
-              });
-            }
-          );
-        });
-      });
-    });
-  });
+        res.json({ token });
+      }
+    );
+  } catch (err) {
+    console.error(err.message);
+    res.status(500).send("Server error");
+  }
 });
 
 module.exports = router;
