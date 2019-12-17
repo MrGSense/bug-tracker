@@ -53,6 +53,8 @@ router.post("/", auth, async (req, res) => {
       { $set: bugFields },
       { new: true, upsert: true }
     );
+
+    res.json(bug);
   } catch (err) {
     console.error(err.message);
     res.status(500).send("Server Error");
@@ -71,12 +73,63 @@ router.delete("/:id", auth, async (req, res) => {
   }
 });
 
-// @route PUT api/bugs/:id/comment
+// @route POST api/bugs/:id/comment
 // @desc Add a comment to a bug
 // @access Private
-router.put("/:id/comment", auth, async (req, res) => {
+router.post("/:id/comment", auth, async (req, res) => {
+  try {
+    const user = await User.findById(req.user.id).select("-password");
+    const bug = Bug.findById(req.params.id);
+
+    const newComment = {
+      text: req.body.text,
+      name: user.name,
+      user: req.user.id
+    };
+
+    bug.comments.unshift(newComment);
+
+    await bug.save();
+
+    req.json(bug.comments);
+  } catch (err) {
+    console.error(err.message);
+    res.status(500).send("Server Error");
+  }
+});
+
+// @route DELETE api/bugs/:id/comment/:comment_id
+// @desc Delete a comment to a bug
+// @access Private
+router.delete("/:id/comment/:comment_id", auth, async (req, res) => {
   try {
     const bug = Bug.findById(req.params.id);
+
+    // Pull out comment
+    const comment = post.comments.find(
+      comment => comment.id === req.params.comment_id
+    );
+
+    // Make sure comment exists
+    if (!comment) {
+      return res.status(404).json({ msg: "Comment does not exist" });
+    }
+
+    // Check user
+    if (comment.user.toString() !== req.user.id) {
+      return res.status(401).json({ msg: "User not authorized" });
+    }
+
+    // Get remove index
+    const removeIndex = post.comments
+      .map(comment => comment.id)
+      .indexOf(req.params.comment_id);
+
+    this.post.comments.splice(removeIndex, 1);
+
+    await bug.save();
+
+    req.json(bug.comments);
   } catch (err) {
     console.error(err.message);
     res.status(500).send("Server Error");
