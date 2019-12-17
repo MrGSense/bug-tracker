@@ -11,7 +11,7 @@ const User = require("../../models/User");
 // @route POST api/auth
 // @desc Authenticate User
 // @access Public
-router.post("/", (req, res) => {
+router.post("/", async (req, res) => {
   const { email, password } = req.body;
 
   // Simple validation
@@ -22,14 +22,14 @@ router.post("/", (req, res) => {
   try {
     let user = await User.findOne({ email });
 
-    if(!user) {
-      return res.status(400).json({ msg: 'Invalid credentials' });
+    if (!user) {
+      return res.status(400).json({ msg: "Invalid credentials" });
     }
 
     const isMatch = await bcrypt.compare(password, user.password);
 
-    if(!isMatch) {
-      return res.status(400).json({ msg: 'Invalid credentials' });
+    if (!isMatch) {
+      return res.status(400).json({ msg: "Invalid credentials" });
     }
 
     const payload = {
@@ -40,29 +40,29 @@ router.post("/", (req, res) => {
 
     jwt.sign(
       payload,
-      config.get('jwtSecret'),
-      { expiresIn: 3600},
+      config.get("jwtSecret"),
+      { expiresIn: 3600 },
       (err, token) => {
-        if(err) throw err;
+        if (err) throw err;
         res.json({ token });
       }
     );
   } catch (err) {
     console.error(err.message);
-    res.status(500).send('Server error');
+    res.status(500).send("Server error");
   }
 });
 
 // @route GET api/auth/user
 // @desc Get user data
 // @access Private
-router.get("/user", auth, (req, res) => {
+router.get("/user", auth, async (req, res) => {
   try {
-    const user = await User.findById(req.user.id).select('-password');
+    const user = await User.findById(req.user.id).select("-password");
     res.json(user);
   } catch (err) {
     console.error(err.message);
-    res.status(500).send('Server error');
+    res.status(500).send("Server error");
   }
 });
 
