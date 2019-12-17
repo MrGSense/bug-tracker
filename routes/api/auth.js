@@ -19,34 +19,51 @@ router.post("/", (req, res) => {
     return res.status(400).json({ msg: "Please enter all fields" });
   }
 
-  // Check for existing user
-  User.findOne({ email }).then(user => {
-    if (!user) return res.status(400).json({ msg: "User does not exist" });
+  try {
+    let user = await User.findOne({ email });
 
-    // Validate password
-    bcrypt.compare(password, user.password).then(isMatch => {
-      if (!isMatch) return res.status(400).json({ msg: "Invalid credentials" });
+    if(!user) {
+      return res.status(400).json({ msg: 'Invalid credentials' });
+    }
 
-      jwt.sign(
-        { id: user.id },
-        config.get("jwtSecret"),
-        { expiresIn: 3600 },
-        (err, token) => {
-          if (err) throw err;
-          res.json({ token });
-        }
-      );
-    });
-  });
+    const isMatch = await bcrypt.compare(password, user.password);
+
+    if(!isMatch) {
+      return res.status(400).json({ msg: 'Invalid credentials' });
+    }
+
+    const payload = {
+      user: {
+        id: user.id
+      }
+    };
+
+    jwt.sign(
+      payload,
+      config.get('jwtSecret'),
+      { expiresIn: 3600},
+      (err, token) => {
+        if(err) throw err;
+        res.json({ token });
+      }
+    );
+  } catch (err) {
+    console.error(err.message);
+    res.status(500).send('Server error');
+  }
 });
 
 // @route GET api/auth/user
 // @desc Get user data
 // @access Private
 router.get("/user", auth, (req, res) => {
-  User.findById(req.user.id)
-    .select("-password")
-    .then(user => res.json(user));
+  try {
+    const user = await User.findById(req.user.id).select('-password');
+    res.json(user);
+  } catch (err) {
+    console.error(err.message);
+    res.status(500).send('Server error');
+  }
 });
 
 module.exports = router;
