@@ -2,15 +2,19 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const BugSchema = new Schema({
-  bug_title: {
+  user: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "user"
+  },
+  title: {
     type: String,
     required: true
   },
-  bug_project: {
+  project: {
     type: String,
     required: true
   },
-  bug_description: {
+  description: {
     type: String,
     required: true
   },
