@@ -2,8 +2,9 @@ const express = require("express");
 const router = express.Router();
 const auth = require("../../middleware/auth");
 
-// User Model
+// Mongoose models
 const Bug = require("../../models/Bug");
+const User = require("../../models/User");
 
 // @route GET api/bugs
 // @desc Get bugs
@@ -17,12 +18,11 @@ router.get("/", (req, res) => {
 // @access Private
 router.post("/", auth, (req, res) => {
   const newBug = new Bug({
-    bug_title: req.body.title,
-    bug_project: req.body.project,
-    bug_description: req.body.description
+    title: req.body.title,
+    project: req.body.project,
+    description: req.body.description
   });
 
-  // @todo make it the ability to create a new or edit a bug
   newBug.save().then(bug => res.json(bug));
 });
 
@@ -36,10 +36,17 @@ router.delete("/:id", auth, (req, res) => {
 });
 
 // @route PUT api/bugs/:id
-// @desc Add comment to bug
+// @desc Edit bug
 // @access Private
 router.put("/:id", auth, (req, res) => {
-  // @todo add mongoose stuff to be able to add a comment
+  Bug.findById(req.params.id);
+});
+
+// @route PUT api/bugs/:id/comment
+// @desc Add a comment to a bug
+// @access Private
+router.put("/:id/comment", auth, (req, res) => {
+  Bug.findById(req.params.id);
 });
 
 module.exports = router;
