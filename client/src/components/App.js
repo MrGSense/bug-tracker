@@ -1,35 +1,40 @@
-import React, { Component } from 'react';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import React, { Component } from "react";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
-import Home from './bug-tracker/layout/Home';
-import Bugs from './bug-tracker/layout/Bugs';
-import About from './bug-tracker/layout/About';
-import Signin from './bug-tracker/layout/Signin';
-import Signup from './bug-tracker/layout/Signup';
-import Signout from './bug-tracker/layout/Signout';
+// Redux
+import { Provider } from "react-redux";
+import store from "./store";
+import { loadUser } from "../actions/auth";
+import setAuthToken from "../utils/setAuthToken";
 
-import Navbar from './bug-tracker/Navbar';
+// Components
+import Navbar from "./bug-tracker/layout/Navbar";
+import Home from "./bug-tracker/layout/Home";
+import Routes from "./bug-tracker/routing/Routes";
 
-import './styles/app.css';
+// Styles
+import "./styles/app.css";
+
+if (localStorage.token) {
+  setAuthToken(localStorage.token);
+}
 
 class App extends Component {
-    render() {
-        return (
-            <Router>
-                <div className="App">
-                    <Navbar />
-                    <Switch>
-                        <Route exact path="/" component={Home}/>
-                        <Route path="/bugs" component={Bugs}/>
-                        <Route path="/about" component={About}/>
-                        <Route path="/signin" component={Signin}/>
-                        <Route path="/signup" component={Signup}/>
-                        <Route path="/signout" component={Signout}/>
-                    </Switch>
-                </div>
-            </Router>
-        )
-    }
+  render() {
+    return (
+      <Provider store={store}>
+        <Router>
+          <div className='App'>
+            <Navbar />
+            <Switch>
+              <Route exact path='/' component={Home} />
+              <Route component={Routes} />
+            </Switch>
+          </div>
+        </Router>
+      </Provider>
+    );
+  }
 }
 
 export default App;
