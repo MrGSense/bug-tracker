@@ -93,7 +93,7 @@ const Signup = ({ register, isAuthenticated }) => {
   );
 };
 
-Signin.propTypes = {
+Signup.propTypes = {
   register: PropTypes.func.isRequired,
   isAuthenticated: PropTypes.bool
 };

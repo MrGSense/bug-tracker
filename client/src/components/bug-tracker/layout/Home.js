@@ -6,7 +6,7 @@ const Home = () => {
     <div className='homePage'>
       <div className='homePage-content'>
         <h1 className='homePage-header'>Welcome to Bug Tracker!</h1>
-        <p classname='homePage-lead'>
+        <p className='homePage-lead'>
           Where you can share your coding bugs and get some input!
         </p>
         <div className='homePage-links'>
