@@ -5,8 +5,8 @@ import { Route, Switch } from "react-router-dom";
 import About from "../layout/About";
 import Bug from "../layout/Bug";
 import Bugs from "../layout/Bugs";
-import Signin from "../layout/Signin";
-import Signup from "../layout/Signup";
+import Signin from "../forms/Signin";
+import Signup from "../forms/Signup";
 
 // Private Route
 import PrivateRoute from "./PrivateRoute";
