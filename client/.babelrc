@@ -2,3 +2,5 @@
   "presets": ["@babel/preset-env", "@babel/preset-react"],
   "plugins": ["@babel/plugin-proposal-class-properties"]
 }
+
+// HAVE TO DO BABEL POLYFILL STUFF FOR ASYNC FUNCTIONS IN YOUR APPLICATION

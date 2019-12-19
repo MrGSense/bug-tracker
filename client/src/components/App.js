@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { useEffect } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 // Redux
@@ -19,22 +19,24 @@ if (localStorage.token) {
   setAuthToken(localStorage.token);
 }
 
-class App extends Component {
-  render() {
-    return (
-      <Provider store={store}>
-        <Router>
-          <div className='App'>
-            <Navbar />
-            <Switch>
-              <Route exact path='/' component={Home} />
-              <Route component={Routes} />
-            </Switch>
-          </div>
-        </Router>
-      </Provider>
-    );
-  }
-}
+const App = () => {
+  useEffect(() => {
+    store.dispatch(loadUser());
+  }, []);
+
+  return (
+    <Provider store={store}>
+      <Router>
+        <div className='App'>
+          <Navbar />
+          <Switch>
+            <Route exact path='/' component={Home} />
+            <Route component={Routes} />
+          </Switch>
+        </div>
+      </Router>
+    </Provider>
+  );
+};
 
 export default App;

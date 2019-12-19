@@ -118,9 +118,9 @@ CreateBug.propTypes = {
   bug: PropTypes.object.isRequired
 };
 
-const mapStateToProps = state => {
+const mapStateToProps = state => ({
   bug: state.bug;
-};
+});
 
 export default connect(mapStateToProps, { addBug, getBug })(
   withRouter(CreateBug)
