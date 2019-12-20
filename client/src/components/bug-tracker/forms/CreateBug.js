@@ -19,7 +19,8 @@ const CreateBug = ({ addBug, history }) => {
 
   const onSubmit = e => {
     e.preventDefault();
-    createProfile(formData, history);
+
+    addBug(formData, history);
   };
 
   return (

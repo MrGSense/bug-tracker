@@ -9,7 +9,15 @@ const Bugs = ({ bugs, getBugs }) => {
     getBugs();
   }, [getBugs]);
 
-  return <div className='bugsPage'></div>;
+  return (
+    <div className='bugsPage'>
+      <div className='bugsPage-content'>
+        <Link to='/bugs/create' className='bugsPage-link'>
+          Create a new bug
+        </Link>
+      </div>
+    </div>
+  );
 };
 
 Bugs.propTypes = {
