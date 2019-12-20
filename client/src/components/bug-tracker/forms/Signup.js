@@ -37,7 +37,6 @@ const Signup = ({ register, isAuthenticated }) => {
         <p className='signupPage-lead'>Create your account</p>
         <form className='signupPage-form' onSubmit={e => onSubmit(e)}>
           <div className='signupPage-formgroup'>
-            <label className='signupPage-label'>Name</label>
             <input
               className='signupPage-input'
               type='text'
@@ -49,7 +48,6 @@ const Signup = ({ register, isAuthenticated }) => {
             />
           </div>
           <div className='signupPage-formgroup'>
-            <label className='signupPage-label'>Email address</label>
             <input
               className='signupPage-input'
               type='text'
@@ -61,7 +59,6 @@ const Signup = ({ register, isAuthenticated }) => {
             />
           </div>
           <div className='signupPage-formgroup'>
-            <label className='signupPage-label'>Password</label>
             <input
               className='signupPage-input'
               type='password'
@@ -73,7 +70,6 @@ const Signup = ({ register, isAuthenticated }) => {
             />
           </div>
           <div className='signupPage-formgroup'>
-            <label className='signupPage-label'>Confirm password</label>
             <input
               className='signupPage-input'
               type='password'
@@ -84,9 +80,7 @@ const Signup = ({ register, isAuthenticated }) => {
               required
             />
           </div>
-          <input type='submit' className='signupPage-submit'>
-            Sign up
-          </input>
+          <input type='submit' className='signupPage-submit' value='Sign up' />
         </form>
       </div>
     </div>

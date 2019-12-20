@@ -104,9 +104,7 @@ const CreateBug = ({ addBug, getBug, bug: { bug, loading }, history }) => {
             If you want copy the link to the repository this bug is in
           </small>
         </div>
-        <input type='submit' className='editbugPage-submit'>
-          Submit
-        </input>
+        <input type='submit' className='editbugPage-submit' value='Submit' />
       </form>
     </div>
   );
@@ -119,7 +117,7 @@ CreateBug.propTypes = {
 };
 
 const mapStateToProps = state => ({
-  bug: state.bug;
+  bug: state.bug
 });
 
 export default connect(mapStateToProps, { addBug, getBug })(

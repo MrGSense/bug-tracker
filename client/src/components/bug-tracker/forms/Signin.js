@@ -18,7 +18,7 @@ const Signin = ({ login, isAuthenticated }) => {
   const onSubmit = async e => {
     e.preventDefault();
 
-    login({ email, password });
+    login(email, password);
   };
 
   if (isAuthenticated) {
@@ -32,7 +32,6 @@ const Signin = ({ login, isAuthenticated }) => {
         <p className='signinPage-lead'>Login to your account</p>
         <form className='signinPage-form' onSubmit={e => onSubmit(e)}>
           <div className='signinPage-formgroup'>
-            <label className='signinPage-label'>Email address</label>
             <input
               className='signinPage-input'
               type='text'
@@ -44,7 +43,6 @@ const Signin = ({ login, isAuthenticated }) => {
             />
           </div>
           <div className='signinPage-formgroup'>
-            <label className='signinPage-label'>Password</label>
             <input
               className='signinPage-input'
               type='password'
@@ -55,9 +53,7 @@ const Signin = ({ login, isAuthenticated }) => {
               required
             />
           </div>
-          <input type='submit' className='signinPage-submit'>
-            Sign in
-          </input>
+          <input type='submit' className='signinPage-submit' value='Sign in' />
         </form>
       </div>
     </div>

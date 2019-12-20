@@ -90,9 +90,7 @@ const CreateBug = ({ addBug, history }) => {
             If you want copy the link to the repository this bug is in
           </small>
         </div>
-        <input type='submit' className='createbugPage-submit'>
-          Submit
-        </input>
+        <input type='submit' className='createbugPage-submit' value='Submit' />
       </form>
     </div>
   );
