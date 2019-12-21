@@ -9,3 +9,27 @@ body {
   width: 100vw;
   text-align: center;
 }
+
+.Navbar {
+  width: 100%;
+  height: 8%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  background-color: black;
+}
+
+.Navbar-links {
+  list-style: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.Navbar-link {
+  text-decoration: none;
+  color: white;
+}
+/*# sourceMappingURL=app.css.map */
