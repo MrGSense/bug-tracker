@@ -1,7 +1,7 @@
-const express = require('express');
-const mongoose = require('mongoose');
-const config = require('config');
-const path = require('path');
+const express = require("express");
+const mongoose = require("mongoose");
+const config = require("config");
+const path = require("path");
 
 let app = express();
 
@@ -9,25 +9,31 @@ let app = express();
 app.use(express.json());
 
 // Get MongoURI
-const db = config.get('mongoURI');
+const db = config.get("mongoURI");
 
 // Database Connection
-mongoose.connect(db, { useNewUrlParser: true, useCreateIndex: true, useUnifiedTopology: true })
-.then(() => console.log('MongoDB Connected'))
-.catch(err => console.log(err));
+mongoose
+  .connect(db, {
+    useNewUrlParser: true,
+    useCreateIndex: true,
+    useUnifiedTopology: true,
+    useFindAndModify: false
+  })
+  .then(() => console.log("MongoDB Connected"))
+  .catch(err => console.log(err));
 
 // Routes
-app.use('/api/bugs', require('./routes/api/bugs'));
-app.use('/api/users', require('./routes/api/users'));
-app.use('/api/auth', require('./routes/api/auth'));
+app.use("/api/bugs", require("./routes/api/bugs"));
+app.use("/api/users", require("./routes/api/users"));
+app.use("/api/auth", require("./routes/api/auth"));
 
 // Production
-if(process.env.NODE_ENV === 'production') {
-    app.use(express.static('client/dist'));
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static("client/dist"));
 
-    app.get('*', (req, res) => {
-        res.sendFile(path.resolve(__dirname, 'client', 'dist', 'index.html'));
-    });
+  app.get("*", (req, res) => {
+    res.sendFile(path.resolve(__dirname, "client", "dist", "index.html"));
+  });
 }
 
 const port = process.env.PORT || 5000;
