@@ -3,7 +3,7 @@ const Schema = mongoose.Schema;
 
 const BugSchema = new Schema({
   user: {
-    type: mongoose.Schema.Types.ObjectId,
+    type: Schema.Types.ObjectId,
     ref: "user"
   },
   title: {
@@ -23,7 +23,7 @@ const BugSchema = new Schema({
     {
       user: {
         type: Schema.Types.ObjectId,
-        ref: "users"
+        ref: "user"
       },
       text: {
         type: String,

@@ -48,11 +48,15 @@ router.post("/", auth, async (req, res) => {
   if (githubRepo) bugFields.githubRepo = githubRepo;
 
   try {
-    let bug = await Bug.findOneAndUpdate(
-      { user: req.user.id },
-      { $set: bugFields },
-      { new: true, upsert: true }
-    );
+    const user = await User.findById(req.user.id).select("-password");
+
+    const newBug = new Bug({
+      title: req.body.title,
+      project: req.body.project,
+      description: req.body.description
+    });
+
+    const bug = await newBug.save();
 
     res.json(bug);
   } catch (err) {
