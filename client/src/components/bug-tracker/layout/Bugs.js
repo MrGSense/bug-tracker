@@ -26,7 +26,7 @@ Bugs.propTypes = {
 };
 
 const mapStateToProps = state => ({
-  bugs: state.bugs
+  bugs: state.bug.bugs
 });
 
 export default connect(mapStateToProps, { getBugs })(Bugs);

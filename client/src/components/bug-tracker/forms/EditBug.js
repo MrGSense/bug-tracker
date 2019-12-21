@@ -33,7 +33,7 @@ const CreateBug = ({ addBug, getBug, bug: { bug, loading }, history }) => {
 
   const onSubmit = e => {
     e.preventDefault();
-    addBug(formData, history);
+    addBug(formData, history, true);
   };
 
   return (

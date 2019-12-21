@@ -28,7 +28,7 @@ export const getBugs = () => async dispatch => {
 };
 
 // Add bug
-export const addBug = formData => async dispatch => {
+export const addBug = (formData, history, edit = false) => async dispatch => {
   const config = {
     headers: {
       "Content-Type": "application/json"
@@ -37,6 +37,10 @@ export const addBug = formData => async dispatch => {
 
   try {
     const res = await axios.post("/api/bugs", formData, config);
+
+    if (!edit) {
+      history.push("/bugs");
+    }
 
     dispatch({
       type: ADD_BUG,
