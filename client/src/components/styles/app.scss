@@ -9,3 +9,38 @@ body {
   width: 100vw;
   text-align: center;
 }
+
+// Navbar
+.Navbar {
+  width: 100%;
+  height: 8%;
+  display: flex;
+  justify-content: space-around;
+  background-color: black;
+
+  &-links {
+    list-style: none;
+    display: flex;
+  }
+
+  &-link {
+    text-decoration: none;
+    color: white;
+  }
+}
+
+// Home Page
+
+// About Page
+
+// Bug Page
+
+// Bugs Page
+
+// CreateBug Form
+
+// EditBug Form
+
+// Signin Form
+
+// Signup Form

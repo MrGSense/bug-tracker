@@ -6,7 +6,7 @@ import { logout } from "../../../actions/auth";
 
 const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
   const authLinks = (
-    <ul>
+    <ul className="Navbar-links">
       <li>
         <Link to='/bugs' className='Navbar-link'>
           Bugs
@@ -26,7 +26,7 @@ const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
   );
 
   const guestLinks = (
-    <ul>
+    <ul className="Navbar-links">
       <li>
         <Link to='/bugs' className='Navbar-link'>
           Bugs
