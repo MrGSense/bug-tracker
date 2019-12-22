@@ -7,7 +7,7 @@ const jwt = require("jsonwebtoken");
 // Mongoose models
 const User = require("../../models/User");
 
-// @route POST api/user
+// @route POST api/users
 // @desc Register user
 // @access Public
 router.post("/", async (req, res) => {
@@ -52,6 +52,27 @@ router.post("/", async (req, res) => {
         res.json({ token });
       }
     );
+  } catch (err) {
+    console.error(err.message);
+    res.status(500).send("Server error");
+  }
+});
+
+// @route Get api/users/:id
+// @desc Get users name
+// @access Public
+
+router.get("/:id", async (req, res) => {
+  const id = req.params.id;
+
+  try {
+    const user = await User.findById(id).select("-password");
+
+    if (!user) {
+      return res.status(400).json({ msg: "User does not exist" });
+    }
+
+    res.json(user.name);
   } catch (err) {
     console.error(err.message);
     res.status(500).send("Server error");
