@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
-import { Redirect } from "react-router-dom";
+import { Redirect, Link } from "react-router-dom";
 import { register } from "../../../actions/auth";
 import PropTypes from "prop-types";
 
@@ -82,6 +82,9 @@ const Signup = ({ register, isAuthenticated }) => {
           </div>
           <input type='submit' className='signupPage-submit' value='Sign up' />
         </form>
+        <Link to='/signin' className='signupPage-link'>
+          Go to Sign in page
+        </Link>
       </div>
     </div>
   );
