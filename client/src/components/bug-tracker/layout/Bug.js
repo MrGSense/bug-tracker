@@ -4,12 +4,32 @@ import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import { getBug } from "../../../actions/bug";
 
-const Bug = ({ bug, auth, getBug }) => {
+const Bug = ({ bug, auth, getBug, match }) => {
   useEffect(() => {
     getBug(match.params.id);
-  }, [getBug]);
+  }, [getBug, match.params.id]);
 
-  return <div className='bugPage'></div>;
+  const bugEditUrl = `/bug/edit/${bug._id}`;
+
+  return (
+    <div className='bugPage'>
+      <Link to='/bugs' className='bugsPage-link'>
+        Back to Bugs
+      </Link>
+      <div className='bugPage-bug'>
+        <h1>{bug.title}</h1>
+        <h2>{bug.project}</h2>
+        <p>{bug.description}</p>
+        {auth.isAuthenticated &&
+          auth.loading === false &&
+          auth.user._id === bug.user && (
+            <Link to={bugEditUrl} className='bugsPage-link'>
+              Edit Bug
+            </Link>
+          )}
+      </div>
+    </div>
+  );
 };
 
 Bug.propTypes = {

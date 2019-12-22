@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import { getBugs } from "../../../actions/bug";
+import BugItem from "../bugs/BugItem";
 
 const Bugs = ({ bugs, getBugs }) => {
   useEffect(() => {
@@ -15,6 +16,11 @@ const Bugs = ({ bugs, getBugs }) => {
         <Link to='/bugs/create' className='bugsPage-link'>
           Create a new bug
         </Link>
+        <div className='bugsPage-list'>
+          {bugs.map(bug => (
+            <BugItem key={bug._id} bug={bug} />
+          ))}
+        </div>
       </div>
     </div>
   );
