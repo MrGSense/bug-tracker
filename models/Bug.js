@@ -7,8 +7,7 @@ const BugSchema = new Schema({
     ref: "user"
   },
   author: {
-    type: Schema.Types.String,
-    ref: "user"
+    type: String
   },
   title: {
     type: String,

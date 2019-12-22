@@ -55,7 +55,7 @@ router.post("/", auth, async (req, res) => {
       project: req.body.project,
       description: req.body.description,
       user: req.user.id,
-      author: req.user.name
+      author: user.name
     });
 
     const bug = await newBug.save();
