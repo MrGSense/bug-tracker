@@ -54,7 +54,8 @@ router.post("/", auth, async (req, res) => {
       title: req.body.title,
       project: req.body.project,
       description: req.body.description,
-      user: req.user.id
+      user: req.user.id,
+      author: req.user.name
     });
 
     const bug = await newBug.save();
@@ -89,7 +90,8 @@ router.post("/:id/comment", auth, async (req, res) => {
     const newComment = {
       text: req.body.text,
       name: user.name,
-      user: req.user.id
+      user: req.user.id,
+      author: req.user.name
     };
 
     bug.comments.unshift(newComment);

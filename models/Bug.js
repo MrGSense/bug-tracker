@@ -6,6 +6,10 @@ const BugSchema = new Schema({
     type: Schema.Types.ObjectId,
     ref: "user"
   },
+  author: {
+    type: Schema.Types.String,
+    ref: "user"
+  },
   title: {
     type: String,
     required: true
@@ -23,6 +27,10 @@ const BugSchema = new Schema({
     {
       user: {
         type: Schema.Types.ObjectId,
+        ref: "user"
+      },
+      author: {
+        type: Schema.Types.String,
         ref: "user"
       },
       text: {
