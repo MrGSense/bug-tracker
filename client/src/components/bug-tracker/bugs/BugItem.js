@@ -7,9 +7,16 @@ const BugItem = ({ bug }) => {
 
   return (
     <div className='BugItem'>
-      <h1>{bug.title}</h1>
-      <h2>{bug.project}</h2>
-      <Link to={bugUrl}>See more</Link>
+      <div className='BugItem-content'>
+        <h1 className='BugItem-title'>Bug: {bug.title}</h1>
+        <h1 className='BugItem-author'>User: {bug.author}</h1>
+        <h2 className='BugItem-project'>Project: {bug.project}</h2>
+      </div>
+      <div className='BugItem-links'>
+        <Link to={bugUrl} className='BugItem-link'>
+          See more
+        </Link>
+      </div>
     </div>
   );
 };

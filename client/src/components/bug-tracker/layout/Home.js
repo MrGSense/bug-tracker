@@ -5,7 +5,7 @@ const Home = () => {
   return (
     <div className='homePage'>
       <div className='homePage-content'>
-        <h1 className='homePage-header'>Welcome to Bug Tracker!</h1>
+        <h1 className='homePage-header'>Welcome to Bug Tracker</h1>
         <p className='homePage-lead'>
           Where you can share your coding bugs and get some input!
         </p>

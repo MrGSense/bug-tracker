@@ -13,15 +13,20 @@ const Bugs = ({ bugs, getBugs }) => {
   return (
     <div className='bugsPage'>
       <div className='bugsPage-content'>
-        <Link to='/bugs/create' className='bugsPage-link'>
-          Create a new bug
-        </Link>
+        <h1 className='bugsPage-header'>Explore Bugs</h1>
+        <p className='bugsPage-lead'>
+          Find some bugs or post your own bugs or maybe even comment on a bug
+          you may have a fix for!
+        </p>
         <div className='bugsPage-list'>
           {bugs.map(bug => (
             <BugItem key={bug._id} bug={bug} />
           ))}
         </div>
       </div>
+      <Link to='/bugs/create' className='bugsPage-link'>
+        Create a new bug
+      </Link>
     </div>
   );
 };

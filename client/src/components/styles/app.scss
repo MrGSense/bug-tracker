@@ -1,3 +1,8 @@
+// Color Variables
+$color-brown-light: #adae89;
+$color-brown-dark: #474838;
+$color-white-light: #fafaee;
+
 * {
   margin: 0;
   padding: 0;
@@ -10,32 +15,239 @@ body {
   text-align: center;
 }
 
+.App {
+  width: 100vw;
+  height: 100vh;
+}
+
 // Navbar
 .Navbar {
-  width: 100%;
-  height: 8%;
+  width: 100vw;
+  height: 5vh;
   display: flex;
-  justify-content: space-around;
-  background-color: black;
+  justify-content: space-between;
+  align-items: center;
+  background-color: $color-brown-dark;
+
+  &-brand {
+    padding-left: 10px;
+    float: left;
+  }
 
   &-links {
     list-style: none;
     display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 50%;
   }
 
   &-link {
     text-decoration: none;
-    color: white;
+    color: $color-brown-light;
   }
 }
 
 // Home Page
+.homePage {
+  height: 95vh;
+  width: 100vw;
+  background-color: $color-brown-light;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &-content {
+    color: $color-brown-dark;
+  }
+
+  &-header {
+    font-size: 4rem;
+  }
+
+  &-lead {
+    font-size: 2rem;
+  }
+
+  &-links {
+    margin-top: 30px;
+  }
+
+  &-link {
+    text-decoration: none;
+    color: inherit;
+    font-size: 1.8rem;
+    background-color: $color-white-light;
+    padding: 2px 4px 2px 4px;
+    border-radius: 10px;
+
+    &:not(:last-child) {
+      margin-right: 20px;
+    }
+  }
+}
 
 // About Page
+.aboutPage {
+  height: 9vh;
+  width: 100vw;
+  background-color: $color-brown-light;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &-content {
+    color: $color-brown-dark;
+  }
+
+  &-header {
+    font-size: 4rem;
+  }
+
+  &-lead {
+    font-size: 2rem;
+  }
+
+  &-links {
+    margin-top: 30px;
+  }
+
+  &-link {
+    text-decoration: none;
+    color: inherit;
+    font-size: 1.8rem;
+    background-color: $color-white-light;
+    padding: 2px 4px 2px 4px;
+    border-radius: 10px;
+  }
+}
 
 // Bug Page
+.bugPage {
+  height: 95vh;
+  width: 100vw;
+  background-color: $color-brown-light;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &-content {
+    color: $color-brown-dark;
+  }
+
+  &-header {
+    font-size: 4rem;
+  }
+
+  &-lead {
+    font-size: 2rem;
+  }
+
+  &-links {
+    margin-top: 30px;
+  }
+
+  &-link {
+    text-decoration: none;
+    color: inherit;
+    font-size: 1.8rem;
+    background-color: $color-white-light;
+    padding: 2px 4px 2px 4px;
+    border-radius: 10px;
+  }
+}
 
 // Bugs Page
+.bugsPage {
+  height: 95vh;
+  width: 100vw;
+  background-color: $color-brown-light;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+
+  &-content {
+    margin-top: 20px;
+    color: $color-brown-dark;
+  }
+
+  &-header {
+    font-size: 2.5rem;
+  }
+
+  &-lead {
+    font-size: 1.3rem;
+  }
+
+  &-list {
+    margin-top: 20px;
+    width: 100vw;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-around;
+  }
+
+  &-link {
+    margin-top: 20px;
+    margin-bottom: 10px;
+    text-decoration: none;
+    color: inherit;
+    font-size: 1.8rem;
+    background-color: $color-white-light;
+    padding: 2px 4px 2px 4px;
+    border-radius: 10px;
+  }
+}
+
+.BugItem {
+  border: 2px solid $color-white-light;
+  background-color: $color-white-light;
+  border-radius: 25px;
+  height: 20vh;
+  width: 25vw;
+  margin: 10px 10px;
+  padding: 5px 5px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  &-title {
+    margin-top: 10px;
+    font-size: 2.2rem;
+  }
+
+  &-author {
+    position: absolute;
+    bottom: 8px;
+    left: 10px;
+    font-size: 1.5rem;
+  }
+
+  &-project {
+    margin-top: 10px;
+    font-size: 1.9rem;
+  }
+
+  &-links {
+    position: absolute;
+    bottom: 8px;
+    right: 10px;
+  }
+
+  &-link {
+    margin-top: 20px;
+    margin-bottom: 10px;
+    text-decoration: none;
+    color: $color-white-light;
+    font-size: 1.8rem;
+    background-color: $color-brown-light;
+    padding: 2px 4px 2px 4px;
+    border-radius: 10px;
+  }
+}
 
 // CreateBug Form
 
