@@ -98,46 +98,6 @@ body {
   margin-right: 20px;
 }
 
-.aboutPage {
-  height: 95vh;
-  width: 100vw;
-  background-color: #adae89;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-}
-
-.aboutPage-content {
-  color: #474838;
-}
-
-.aboutPage-header {
-  font-size: 4rem;
-}
-
-.aboutPage-lead {
-  font-size: 2rem;
-}
-
-.aboutPage-links {
-  margin-top: 30px;
-}
-
-.aboutPage-link {
-  text-decoration: none;
-  color: inherit;
-  font-size: 1.8rem;
-  background-color: #fafaee;
-  padding: 2px 4px 2px 4px;
-  border-radius: 10px;
-}
-
 .bugPage {
   height: 95vh;
   width: 100vw;

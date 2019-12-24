@@ -87,41 +87,6 @@ body {
   }
 }
 
-// About Page
-.aboutPage {
-  height: 95vh;
-  width: 100vw;
-  background-color: $color-brown-light;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  &-content {
-    color: $color-brown-dark;
-  }
-
-  &-header {
-    font-size: 4rem;
-  }
-
-  &-lead {
-    font-size: 2rem;
-  }
-
-  &-links {
-    margin-top: 30px;
-  }
-
-  &-link {
-    text-decoration: none;
-    color: inherit;
-    font-size: 1.8rem;
-    background-color: $color-white-light;
-    padding: 2px 4px 2px 4px;
-    border-radius: 10px;
-  }
-}
-
 // Bug Page
 .bugPage {
   height: 95vh;

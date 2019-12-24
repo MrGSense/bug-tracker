@@ -2,7 +2,6 @@ import React from "react";
 import { Route, Switch } from "react-router-dom";
 
 // Pages
-import About from "../layout/About";
 import Bug from "../layout/Bug";
 import Bugs from "../layout/Bugs";
 import Signin from "../forms/Signin";
@@ -19,7 +18,6 @@ const Routes = () => {
       <Switch>
         <Route exact path='/signin' component={Signin} />
         <Route exact path='/signup' component={Signup} />
-        <Route exact path='/about' component={About} />
         <Route exact path='/bugs' component={Bugs} />
         <Route exact path='/bug/:id' component={Bug} />
         <PrivateRoute exact path='/bugs/create' component={CreateBug} />

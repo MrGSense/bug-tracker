@@ -13,11 +13,6 @@ const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
         </Link>
       </li>
       <li>
-        <Link to='/about' className='Navbar-link'>
-          About
-        </Link>
-      </li>
-      <li>
         <a onClick={logout} href='#!' className='Navbar-link'>
           Log out
         </a>
@@ -30,11 +25,6 @@ const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
       <li>
         <Link to='/bugs' className='Navbar-link'>
           Bugs
-        </Link>
-      </li>
-      <li>
-        <Link to='/about' className='Navbar-link'>
-          About
         </Link>
       </li>
       <li>
