@@ -16,10 +16,11 @@ const Bug = ({ bug, auth, getBug, match }) => {
       <Link to='/bugs' className='bugsPage-link'>
         Back to Bugs
       </Link>
-      <div className='bugPage-bug'>
-        <h1>{bug.title}</h1>
-        <h2>{bug.project}</h2>
-        <p>{bug.description}</p>
+      <div className='bugPage-content'>
+        <h1 className='bugPage-title'>{bug.title}</h1>
+        <h2 className='bugPage-project'>{bug.project}</h2>
+        <h2 className='bugPage-author'>{bug.author}</h2>
+        <p className='bugPage-description'>{bug.description}</p>
         {auth.isAuthenticated &&
           auth.loading === false &&
           auth.user._id === bug.user && (

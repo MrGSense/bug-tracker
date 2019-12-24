@@ -99,7 +99,7 @@ body {
 }
 
 .aboutPage {
-  height: 9vh;
+  height: 95vh;
   width: 100vw;
   background-color: #adae89;
   display: -webkit-box;
@@ -200,12 +200,20 @@ body {
   color: #474838;
 }
 
-.bugsPage-header {
-  font-size: 2.5rem;
+.bugsPage-title {
+  font-size: 3rem;
 }
 
-.bugsPage-lead {
-  font-size: 1.3rem;
+.bugsPage-project {
+  font-size: 3rem;
+}
+
+.bugsPage-author {
+  font-size: 3rem;
+}
+
+.bugsPage-description {
+  font-size: 3rem;
 }
 
 .bugsPage-list {
@@ -288,5 +296,99 @@ body {
   background-color: #adae89;
   padding: 2px 4px 2px 4px;
   border-radius: 10px;
+}
+
+.createbugPage {
+  height: 95vh;
+  width: 100vw;
+  background-color: #adae89;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.createbugPage-content {
+  color: #474838;
+}
+
+.createbugPage-header {
+  font-size: 4rem;
+}
+
+.createbugPage-lead {
+  font-size: 2rem;
+}
+
+.createbugPage-form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.createbugPage-formgroup {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.createbugPage-formgroup:not(:last-child) {
+  margin-top: 20px;
+}
+
+.createbugPage-label {
+  font-size: 1.2rem;
+}
+
+.createbugPage-input {
+  font-size: 1.5rem;
+  border-radius: 5px;
+  border: none;
+  padding: 5px 5px;
+}
+
+.createbugPage-textarea {
+  font-size: 1.5rem;
+  border-radius: 5px;
+  padding: 5px 5px;
+  width: 300px;
+  height: 100px;
+}
+
+.createbugPage-form-text {
+  font-size: 0.9rem;
+}
+
+.createbugPage-submit {
+  text-decoration: none;
+  color: inherit;
+  font-size: 1.8rem;
+  background-color: #fafaee;
+  padding: 2px 4px 2px 4px;
+  border-radius: 10px;
+  margin-top: 20px;
 }
 /*# sourceMappingURL=app.css.map */
