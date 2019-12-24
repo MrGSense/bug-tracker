@@ -93,23 +93,33 @@ body {
   width: 100vw;
   background-color: $color-brown-light;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
 
   &-content {
     color: $color-brown-dark;
+    width: 50%;
+    margin-top: 40px;
   }
 
-  &-header {
-    font-size: 4rem;
+  &-title {
+    font-size: 3rem;
   }
 
-  &-lead {
+  &-project {
     font-size: 2rem;
+    margin-top: 20px;
   }
 
-  &-links {
-    margin-top: 30px;
+  &-author {
+    font-size: 2rem;
+    margin-top: 20px;
+  }
+
+  &-description {
+    font-size: 1.5rem;
+    margin-top: 20px;
+    margin-bottom: 20px;
   }
 
   &-link {
@@ -119,6 +129,7 @@ body {
     background-color: $color-white-light;
     padding: 2px 4px 2px 4px;
     border-radius: 10px;
+    margin-top: 20px;
   }
 }
 

@@ -4,31 +4,37 @@ import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import { getBug } from "../../../actions/bug";
 
-const Bug = ({ bug, auth, getBug, match }) => {
+const Bug = ({ bug: { bug, loading }, auth, getBug, match }) => {
   useEffect(() => {
     getBug(match.params.id);
   }, [getBug, match.params.id]);
 
-  const bugEditUrl = `/bug/edit/${bug._id}`;
+  const onClick = () => {
+    console.log(bug);
+  };
 
   return (
     <div className='bugPage'>
       <Link to='/bugs' className='bugsPage-link'>
         Back to Bugs
       </Link>
-      <div className='bugPage-content'>
-        <h1 className='bugPage-title'>{bug.title}</h1>
-        <h2 className='bugPage-project'>{bug.project}</h2>
-        <h2 className='bugPage-author'>{bug.author}</h2>
-        <p className='bugPage-description'>{bug.description}</p>
-        {auth.isAuthenticated &&
-          auth.loading === false &&
-          auth.user._id === bug.user && (
-            <Link to={bugEditUrl} className='bugsPage-link'>
-              Edit Bug
-            </Link>
-          )}
-      </div>
+      {bug === null || loading ? (
+        <h1 className='bugPage-title'>Loading</h1>
+      ) : (
+        <div className='bugPage-content'>
+          <h1 className='bugPage-title'>Title: {bug.title}</h1>
+          <h2 className='bugPage-project'>Project: {bug.project}</h2>
+          <h2 className='bugPage-author'>Author: {bug.author}</h2>
+          <p className='bugPage-description'>Description: {bug.description}</p>
+          {auth.isAuthenticated &&
+            auth.loading === false &&
+            auth.user._id === bug.user && (
+              <Link to={`/bug/edit/${bug._id}`} className='bugPage-link'>
+                Edit Bug
+              </Link>
+            )}
+        </div>
+      )}
     </div>
   );
 };
