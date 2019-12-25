@@ -21,7 +21,10 @@ const BugSchema = new Schema({
     type: String,
     required: true
   },
-  solved: false,
+  status: {
+    type: String,
+    default: "unsolved"
+  },
   comments: [
     {
       user: {
