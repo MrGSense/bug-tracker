@@ -91,7 +91,7 @@ router.post("/:id/comment", auth, async (req, res) => {
       text: req.body.text,
       name: user.name,
       user: req.user.id,
-      author: req.user.name
+      author: user.name
     };
 
     bug.comments.unshift(newComment);
