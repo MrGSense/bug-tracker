@@ -89,7 +89,6 @@ router.post("/:id/comment", auth, async (req, res) => {
 
     const newComment = {
       text: req.body.text,
-      name: user.name,
       user: req.user.id,
       author: user.name
     };
