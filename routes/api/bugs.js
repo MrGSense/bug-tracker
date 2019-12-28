@@ -93,6 +93,10 @@ router.post("/:id/comment", auth, async (req, res) => {
       author: user.name
     };
 
+    if (!bug.comments) {
+      bug.comments = [];
+    }
+
     bug.comments.unshift(newComment);
 
     await bug.save();
