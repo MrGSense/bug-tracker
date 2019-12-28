@@ -35,6 +35,7 @@ const CommentForm = ({ auth: { isAuthenticated }, bug, addComment }) => {
               type='text'
               placeholder='Type your comment here'
               name='text'
+              onChange={onChange}
               value={text}
             />
             <button className='CommentForm-submit'>Submit</button>
@@ -51,7 +52,7 @@ CommentForm.propTypes = {
   addComment: PropTypes.func.isRequired
 };
 
-mapStateToProps = state => ({
+const mapStateToProps = state => ({
   auth: state.auth
 });
 
