@@ -109,7 +109,7 @@ export const addComment = (bugId, formData) => async dispatch => {
     });
   } catch (err) {
     dispatch({
-      type: POST_ERROR,
+      type: BUG_ERROR,
       payload: { msg: err.response.statusText, status: err.response.status }
     });
   }
@@ -126,7 +126,7 @@ export const deleteComment = (bugId, commentId) => async dispatch => {
     });
   } catch (err) {
     dispatch({
-      type: POST_ERROR,
+      type: BUG_ERROR,
       payload: { msg: err.response.statusText, status: err.response.status }
     });
   }
