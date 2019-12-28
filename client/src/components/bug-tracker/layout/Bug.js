@@ -3,6 +3,8 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import { getBug } from "../../../actions/bug";
+import CommentForm from "../comments/CommentForm";
+import CommentItem from "../comments/CommentItem";
 
 const Bug = ({ bug: { bug, loading }, auth, getBug, match }) => {
   useEffect(() => {
@@ -33,6 +35,15 @@ const Bug = ({ bug: { bug, loading }, auth, getBug, match }) => {
                 Edit Bug
               </Link>
             )}
+          <div className='bugPage-comments'>
+            <h2 className='bugsPage-project'>Comments</h2>
+            {auth.isAuthenticated && auth.loading === false && (
+              <CommentForm bug={bug} />
+            )}
+            {bug.comments.map(comment => (
+              <CommentItem comment={comment} />
+            ))}
+          </div>
         </div>
       )}
     </div>
