@@ -22,13 +22,15 @@ const CommentForm = ({ auth: { isAuthenticated }, bug, addComment }) => {
   return (
     <div className='CommentForm'>
       {!isAuthenticated ? (
-        <h1 className='CommentForm-header'>
-          You must be signed in to comment on a bug
-        </h1>
+        <div className='CommentForm-conent'>
+          <h1 className='CommentForm-header'>
+            You must be signed in to comment on a bug
+          </h1>
+        </div>
       ) : (
         <div className='CommentForm-content'>
           <h1 className='CommentForm-header'>Leave a comment</h1>
-          <form className='CommentForm-form'>
+          <form className='CommentForm-form' onSubmit={onSubmit}>
             <label className='CommentForm-label'>Comment</label>
             <input
               className='CommentForm-input'
