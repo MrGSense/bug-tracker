@@ -99,7 +99,7 @@ router.post("/:id/comment", auth, async (req, res) => {
 
     bug.comments.unshift(newComment);
 
-    await bug.save();
+    await bug.save(); // Appearantly is not a function
 
     res.json(bug);
   } catch (err) {
