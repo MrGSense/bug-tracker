@@ -363,4 +363,176 @@ body {
   border-radius: 10px;
   margin-top: 20px;
 }
+
+.signinPage {
+  height: 95vh;
+  width: 100vw;
+  background-color: #adae89;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.signinPage-content {
+  color: #474838;
+}
+
+.signinPage-header {
+  font-size: 4rem;
+}
+
+.signinPage-lead {
+  font-size: 2rem;
+}
+
+.signinPage-form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.signinPage-formgroup {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.signinPage-formgroup:not(:last-child) {
+  margin-top: 20px;
+}
+
+.signinPage-label {
+  font-size: 1.2rem;
+}
+
+.signinPage-input {
+  font-size: 1.5rem;
+  border-radius: 5px;
+  border: none;
+  padding: 5px 5px;
+}
+
+.signinPage-form-text {
+  font-size: 0.9rem;
+}
+
+.signinPage-submit {
+  text-decoration: none;
+  color: inherit;
+  font-size: 1.8rem;
+  background-color: #fafaee;
+  padding: 2px 4px 2px 4px;
+  border-radius: 10px;
+  margin-top: 20px;
+}
+
+.signupPage {
+  height: 95vh;
+  width: 100vw;
+  background-color: #adae89;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.signupPage-content {
+  color: #474838;
+}
+
+.signupPage-header {
+  font-size: 4rem;
+}
+
+.signupPage-lead {
+  font-size: 2rem;
+}
+
+.signupPage-form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.signupPage-formgroup {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.signupPage-formgroup:not(:last-child) {
+  margin-top: 20px;
+}
+
+.signupPage-label {
+  font-size: 1.2rem;
+}
+
+.signupPage-input {
+  font-size: 1.5rem;
+  border-radius: 5px;
+  border: none;
+  padding: 5px 5px;
+}
+
+.signupPage-form-text {
+  font-size: 0.9rem;
+}
+
+.signupPage-submit {
+  text-decoration: none;
+  color: inherit;
+  font-size: 1.8rem;
+  background-color: #fafaee;
+  padding: 2px 4px 2px 4px;
+  border-radius: 10px;
+  margin-top: 20px;
+}
 /*# sourceMappingURL=app.css.map */
