@@ -85,7 +85,7 @@ router.delete("/:id", auth, async (req, res) => {
 router.post("/:id/comment", auth, async (req, res) => {
   try {
     const user = await User.findById(req.user.id).select("-password");
-    const bug = Bug.findById(req.params.id);
+    const bug = await Bug.findById(req.params.id);
 
     const newComment = {
       text: req.body.text,
@@ -99,7 +99,7 @@ router.post("/:id/comment", auth, async (req, res) => {
 
     bug.comments.unshift(newComment);
 
-    await bug.save(); // Appearantly is not a function
+    await bug.save();
 
     res.json(bug);
   } catch (err) {
