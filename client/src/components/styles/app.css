@@ -364,6 +364,100 @@ body {
   margin-top: 20px;
 }
 
+.editbugPage {
+  height: 95vh;
+  width: 100vw;
+  background-color: #adae89;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.editbugPage-content {
+  color: #474838;
+}
+
+.editbugPage-header {
+  font-size: 4rem;
+}
+
+.editbugPage-lead {
+  font-size: 2rem;
+}
+
+.editbugPage-form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.editbugPage-formgroup {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.editbugPage-formgroup:not(:last-child) {
+  margin-top: 20px;
+}
+
+.editbugPage-label {
+  font-size: 1.2rem;
+}
+
+.editbugPage-input {
+  font-size: 1.5rem;
+  border-radius: 5px;
+  border: none;
+  padding: 5px 5px;
+}
+
+.editbugPage-textarea {
+  font-size: 1.5rem;
+  border-radius: 5px;
+  padding: 5px 5px;
+  width: 300px;
+  height: 100px;
+}
+
+.editbugPage-form-text {
+  font-size: 0.9rem;
+}
+
+.editbugPage-submit {
+  text-decoration: none;
+  color: inherit;
+  font-size: 1.8rem;
+  background-color: #fafaee;
+  padding: 2px 4px 2px 4px;
+  border-radius: 10px;
+  margin-top: 20px;
+}
+
 .signinPage {
   height: 95vh;
   width: 100vw;

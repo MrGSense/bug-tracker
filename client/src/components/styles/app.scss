@@ -306,6 +306,76 @@ body {
 }
 
 // EditBug Form
+.editbugPage {
+  height: 95vh;
+  width: 100vw;
+  background-color: $color-brown-light;
+  display: flex;
+  flex-direction: column;
+
+  &-content {
+    color: $color-brown-dark;
+  }
+
+  &-header {
+    font-size: 4rem;
+  }
+
+  &-lead {
+    font-size: 2rem;
+  }
+
+  &-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &-formgroup {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    &:not(:last-child) {
+      margin-top: 20px;
+    }
+  }
+
+  &-label {
+    font-size: 1.2rem;
+  }
+
+  &-input {
+    font-size: 1.5rem;
+    border-radius: 5px;
+    border: none;
+    padding: 5px 5px;
+  }
+
+  &-textarea {
+    font-size: 1.5rem;
+    border-radius: 5px;
+    padding: 5px 5px;
+    width: 300px;
+    height: 100px;
+  }
+
+  &-form-text {
+    font-size: 0.9rem;
+  }
+
+  &-submit {
+    text-decoration: none;
+    color: inherit;
+    font-size: 1.8rem;
+    background-color: $color-white-light;
+    padding: 2px 4px 2px 4px;
+    border-radius: 10px;
+    margin-top: 20px;
+  }
+}
 
 // Signin Form
 .signinPage {
