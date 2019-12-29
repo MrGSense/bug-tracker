@@ -4,7 +4,13 @@ import { connect } from "react-redux";
 import { addBug, getBug } from "../../../actions/bug";
 import { withRouter } from "react-router-dom";
 
-const CreateBug = ({ addBug, getBug, bug: { bug, loading }, history }) => {
+const CreateBug = ({
+  addBug,
+  getBug,
+  bug: { bug, loading },
+  history,
+  match
+}) => {
   const [formData, setFormData] = useState({
     title: "",
     project: "",
@@ -13,7 +19,7 @@ const CreateBug = ({ addBug, getBug, bug: { bug, loading }, history }) => {
   });
 
   useEffect(() => {
-    getBug(params.id);
+    getBug(match.params.id);
 
     setFormData(
       {
@@ -39,10 +45,8 @@ const CreateBug = ({ addBug, getBug, bug: { bug, loading }, history }) => {
   return (
     <div className='editbugPage'>
       <div className='editbugPage-content'>
-        <h1 className='editbugPage-header'>Create bug</h1>
-        <p className='editbugPage-lead'>
-          Let's get some information on your bug
-        </p>
+        <h1 className='editbugPage-header'>Edit bug</h1>
+        <p className='editbugPage-lead'>Update the information on your bug</p>
       </div>
       <form className='editbugPage-form' onSubmit={e => onSubmit(e)}>
         <div className='editbugPage-formgroup'>

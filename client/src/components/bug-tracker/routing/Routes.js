@@ -21,7 +21,7 @@ const Routes = () => {
         <Route exact path='/bugs' component={Bugs} />
         <Route exact path='/bug/:id' component={Bug} />
         <PrivateRoute exact path='/bugs/create' component={CreateBug} />
-        <PrivateRoute exact path='/bug/edit/:id' component={EditBug} />
+        <PrivateRoute exact path='/bug/:id/edit' component={EditBug} />
       </Switch>
     </div>
   );

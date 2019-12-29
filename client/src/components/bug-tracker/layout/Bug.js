@@ -31,7 +31,7 @@ const Bug = ({ bug: { bug, loading }, auth, getBug, match }) => {
           {auth.isAuthenticated &&
             auth.loading === false &&
             auth.user._id === bug.user && (
-              <Link to={`/bug/edit/${bug._id}`} className='bugPage-link'>
+              <Link to={`/bug/${bug._id}/edit`} className='bugPage-link'>
                 Edit Bug
               </Link>
             )}
