@@ -41,7 +41,7 @@ const Bug = ({ bug: { bug, loading }, auth, getBug, match }) => {
               <CommentForm bug={bug} />
             )}
             {bug.comments.map(comment => (
-              <CommentItem comment={comment} />
+              <CommentItem key={comment.date} comment={comment} />
             ))}
           </div>
         </div>
