@@ -101,7 +101,7 @@ router.post("/:id/comment", auth, async (req, res) => {
 
     await bug.save();
 
-    res.json(bug);
+    res.json(bug.comments);
   } catch (err) {
     console.error(err.message);
     res.status(500).send("Server Error");
