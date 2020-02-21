@@ -1,6 +1,6 @@
 const express = require("express");
 const mongoose = require("mongoose");
-const config = require("config");
+const config = require("./config/keys");
 const path = require("path");
 
 let app = express();
@@ -9,7 +9,7 @@ let app = express();
 app.use(express.json());
 
 // Get MongoURI
-const db = config.get("mongoURI");
+const db = config.mongoURI;
 
 // Database Connection
 mongoose
