@@ -6,4 +6,4 @@
 node_modules
 
 # config
-config/default.json
+config/dev.js
