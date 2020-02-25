@@ -4,6 +4,13 @@ import { connect } from "react-redux";
 import { addBug, getBug } from "../../../actions/bug";
 import { withRouter } from "react-router-dom";
 
+const initialState = {
+  title: "",
+  description: "",
+  project: "",
+  githubRepo: ""
+};
+
 const CreateBug = ({
   addBug,
   getBug,
@@ -11,26 +18,20 @@ const CreateBug = ({
   history,
   match
 }) => {
-  const [formData, setFormData] = useState({
-    title: "",
-    project: "",
-    description: "",
-    githubRepo: ""
-  });
+  const [formData, setFormData] = useState(initialState);
 
   useEffect(() => {
-    getBug(match.params.id);
+    if (!bug) getBug(match.params.id);
+    if (!loading) {
+      const bugData = { ...initialState };
 
-    setFormData(
-      {
-        title: loading || !bug.title ? "" : bug.title,
-        description: loading || !bug.description ? "" : bug.description,
-        project: loading || !bug.project ? "" : bug.project,
-        githubRepo: loading || !bug.githubRepo ? "" : bug.githubRepo
-      },
-      [loading, getBug]
-    );
-  });
+      for (const key in bug) {
+        if (key in bugData) bugData[key] = bug[key];
+      }
+
+      setFormData(bugData);
+    }
+  }, [loading, getBug, bug]);
 
   const { title, project, description, githubRepo } = formData;
 
@@ -39,77 +40,75 @@ const CreateBug = ({
 
   const onSubmit = e => {
     e.preventDefault();
+
     addBug(formData, history, true);
   };
 
   return (
-    <div className='editbugPage'>
-      <div className='editbugPage-content'>
-        <h1 className='editbugPage-header'>Edit bug</h1>
-        <p className='editbugPage-lead'>Update the information on your bug</p>
+    <div className='page valign-wrapper green'>
+      <div className='container'>
+        <h1>Edit bug</h1>
+        <h3>Update the information on your bug</h3>
+        <form
+          className='card-panel green lighten-1'
+          onSubmit={e => onSubmit(e)}
+        >
+          <div className='input-field'>
+            <label htmlFor='title'>Title</label>
+            <input
+              type='text'
+              name='title'
+              id='title'
+              value={title}
+              onChange={e => onChange(e)}
+              required
+            />
+            <small>Choose a title that generally describes your bug</small>
+          </div>
+          <div className='input-field'>
+            <label htmlFor='project'>Project</label>
+            <input
+              type='text'
+              name='project'
+              id='project'
+              value={project}
+              onChange={e => onChange(e)}
+              required
+            />
+            <small>The name of the project in which the bug occurs</small>
+          </div>
+          <div className='input-field'>
+            <label htmlFor='description'>Description</label>
+            <textarea
+              type='text'
+              name='description'
+              id='description'
+              value={description}
+              onChange={e => onChange(e)}
+              required
+            />
+            <small>Describe your bug the best you can</small>
+          </div>
+          <div className='input-field'>
+            <label htmlFor='githubRepo'>Github Repository</label>
+            <input
+              type='text'
+              name='githubRepo'
+              id='githubRepo'
+              value={githubRepo}
+              onChange={e => onChange(e)}
+            />
+            <small>
+              If you want copy the link to the repository this bug is in
+            </small>
+          </div>
+          <input
+            type='submit'
+            className='waves-effect waves-light btn green darken-1'
+            value='Submit'
+          />
+        </form>
       </div>
-      <form className='editbugPage-form' onSubmit={e => onSubmit(e)}>
-        <div className='editbugPage-formgroup'>
-          <label className='editbugPage-label'>Title</label>
-          <input
-            className='editbugPage-input'
-            type='text'
-            placeholder='Title'
-            name='title'
-            value={title}
-            onChange={e => onChange(e)}
-            required
-          />
-          <small className='editbugPage-form-text'>
-            Choose a title that generally describes your bug
-          </small>
-        </div>
-        <div className='editbugPage-formgroup'>
-          <label className='editbugPage-label'>Project</label>
-          <input
-            className='editbugPage-input'
-            type='text'
-            placeholder='Project'
-            name='project'
-            value={project}
-            onChange={e => onChange(e)}
-            required
-          />
-          <small className='editbugPage-form-text'>
-            The name of the project in which the bug occurs
-          </small>
-        </div>
-        <div className='editbugPage-formgroup'>
-          <label className='editbugPage-label'>Description</label>
-          <textarea
-            className='editbugPage-textarea'
-            type='text'
-            placeholder='Description'
-            name='description'
-            value={description}
-            onChange={e => onChange(e)}
-            required
-          />
-          <small className='editbugPage-form-text'>
-            Describe your bug the best you can
-          </small>
-        </div>
-        <div className='editbugPage-formgroup'>
-          <label className='editbugPage-label'>Github Repository</label>
-          <input
-            className='editbugPage-input'
-            type='text'
-            placeholder='Github Repository'
-            name='githubRepo'
-            value={githubRepo}
-            onChange={e => onChange(e)}
-          />
-          <small className='editbugPage-form-text'>
-            If you want copy the link to the repository this bug is in
-          </small>
-        </div>
-        <input type='submit' className='editbugPage-submit' value='Submit' />
-      </form>
     </div>
   );
 };
