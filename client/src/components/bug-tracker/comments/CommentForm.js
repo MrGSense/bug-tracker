@@ -30,11 +30,9 @@ const CommentForm = ({ auth: { isAuthenticated }, bug, addComment }) => {
           <h3>Leave a comment</h3>
           <form onSubmit={onSubmit}>
             <div className='input-field'>
-              <label for='text'>Comment</label>
+              <label htmlFor='text'>Type your comment here</label>
               <input
-                className='validate'
                 type='text'
-                placeholder='Type your comment here'
                 name='text'
                 id='text'
                 onChange={onChange}

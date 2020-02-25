@@ -4,11 +4,9 @@ import { connect } from "react-redux";
 
 const CommentItem = ({ comment, auth }) => {
   return (
-    <div className='CommentItem'>
-      <div className='CommentItem-content'>
-        <h3 className='CommentItem-author'>{comment.author}</h3>
-        <p className='CommentItem-text'>{comment.text}</p>
-      </div>
+    <div className='card-panel green lighten-1'>
+      <h4>{comment.author}</h4>
+      <h6>{comment.text}</h6>
     </div>
   );
 };
