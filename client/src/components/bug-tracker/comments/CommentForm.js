@@ -20,27 +20,30 @@ const CommentForm = ({ auth: { isAuthenticated }, bug, addComment }) => {
   };
 
   return (
-    <div className='CommentForm'>
+    <div className='card-panel green lighten-1'>
       {!isAuthenticated ? (
-        <div className='CommentForm-conent'>
-          <h1 className='CommentForm-header'>
-            You must be signed in to comment on a bug
-          </h1>
+        <div>
+          <h3>You must be signed in to comment on a bug</h3>
         </div>
       ) : (
-        <div className='CommentForm-content'>
-          <h1 className='CommentForm-header'>Leave a comment</h1>
-          <form className='CommentForm-form' onSubmit={onSubmit}>
-            <label className='CommentForm-label'>Comment</label>
-            <input
-              className='CommentForm-input'
-              type='text'
-              placeholder='Type your comment here'
-              name='text'
-              onChange={onChange}
-              value={text}
-            />
-            <button className='CommentForm-submit'>Submit</button>
+        <div>
+          <h3>Leave a comment</h3>
+          <form onSubmit={onSubmit}>
+            <div className='input-field'>
+              <label for='text'>Comment</label>
+              <input
+                className='validate'
+                type='text'
+                placeholder='Type your comment here'
+                name='text'
+                id='text'
+                onChange={onChange}
+                value={text}
+              />
+            </div>
+            <button className='waves-effect waves-light btn green darken-1'>
+              Submit
+            </button>
           </form>
         </div>
       )}

@@ -27,7 +27,7 @@ const App = () => {
   return (
     <Provider store={store}>
       <Router>
-        <div className='App'>
+        <div>
           <Navbar />
           <Switch>
             <Route exact path='/' component={Home} />

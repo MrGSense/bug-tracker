@@ -16,36 +16,45 @@ const Bug = ({ bug: { bug, loading }, auth, getBug, match }) => {
   };
 
   return (
-    <div className='bugPage'>
-      <Link to='/bugs' className='bugsPage-link'>
-        Back to Bugs
-      </Link>
-      {bug === null || loading ? (
-        <h1 className='bugPage-title'>Loading</h1>
-      ) : (
-        <div className='bugPage-content'>
-          <h1 className='bugPage-title'>Title: {bug.title}</h1>
-          <h2 className='bugPage-project'>Project: {bug.project}</h2>
-          <h2 className='bugPage-author'>Author: {bug.author}</h2>
-          <p className='bugPage-description'>Description: {bug.description}</p>
-          {auth.isAuthenticated &&
-            auth.loading === false &&
-            auth.user._id === bug.user && (
-              <Link to={`/bug/${bug._id}/edit`} className='bugPage-link'>
-                Edit Bug
-              </Link>
-            )}
-          <div className='bugPage-comments'>
-            <h2 className='bugsPage-project'>Comments</h2>
-            {auth.isAuthenticated && auth.loading === false && (
-              <CommentForm bug={bug} />
-            )}
-            {bug.comments.map(comment => (
-              <CommentItem key={comment.date} comment={comment} />
-            ))}
+    <div className='page valign-wrapper green'>
+      <div className='container'>
+        {bug === null || loading ? (
+          <h1>Loading</h1>
+        ) : (
+          <div>
+            <div class='section'>
+              <div className='card large green lighten-1'>
+                <div className='card-content'>
+                  <h1>
+                    {bug.project} by {bug.author}
+                  </h1>
+                  <h2>{bug.title}</h2>
+                  <h4>{bug.description}</h4>
+                  {auth.isAuthenticated &&
+                    auth.loading === false &&
+                    auth.user._id === bug.user && (
+                      <Link
+                        to={`/bug/${bug._id}/edit`}
+                        className='waves-effect waves-light btn green darken-1'
+                      >
+                        Edit Bug
+                      </Link>
+                    )}
+                </div>
+              </div>
+            </div>
+            <div className='section'>
+              <h1>Comments:</h1>
+              {auth.isAuthenticated && auth.loading === false && (
+                <CommentForm bug={bug} />
+              )}
+              {bug.comments.map(comment => (
+                <CommentItem key={comment.date} comment={comment} />
+              ))}
+            </div>
           </div>
-        </div>
-      )}
+        )}
+      </div>
     </div>
   );
 };

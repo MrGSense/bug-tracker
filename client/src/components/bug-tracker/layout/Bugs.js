@@ -11,22 +11,27 @@ const Bugs = ({ bugs, getBugs }) => {
   }, [getBugs]);
 
   return (
-    <div className='bugsPage'>
-      <div className='bugsPage-content'>
-        <h1 className='bugsPage-header'>Explore Bugs</h1>
-        <p className='bugsPage-lead'>
-          Find some bugs or post your own bugs or maybe even comment on a bug
-          you may have a fix for!
-        </p>
-        <div className='bugsPage-list'>
-          {bugs.map(bug => (
-            <BugItem key={bug._id} bug={bug} />
-          ))}
+    <div className='page valign-wrapper green'>
+      <div className='container'>
+        <div>
+          <h1>Explore Bugs</h1>
+          <h4>
+            Find some bugs or post your own bugs or maybe even comment on a bug
+            you may have a fix for!
+          </h4>
+          <div className='row'>
+            {bugs.map(bug => (
+              <BugItem key={bug._id} bug={bug} />
+            ))}
+          </div>
         </div>
+        <Link
+          to='/bugs/create'
+          className='waves-effect waves-light btn green darken-1'
+        >
+          Create a new bug
+        </Link>
       </div>
-      <Link to='/bugs/create' className='bugsPage-link'>
-        Create a new bug
-      </Link>
     </div>
   );
 };

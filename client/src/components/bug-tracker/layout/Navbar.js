@@ -6,14 +6,12 @@ import { logout } from "../../../actions/auth";
 
 const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
   const authLinks = (
-    <ul className='Navbar-links'>
+    <ul className='right'>
       <li>
-        <Link to='/bugs' className='Navbar-link'>
-          Bugs
-        </Link>
+        <Link to='/bugs'>Bugs</Link>
       </li>
       <li>
-        <a onClick={logout} href='#!' className='Navbar-link'>
+        <a onClick={logout} href='#!'>
           Log out
         </a>
       </li>
@@ -21,35 +19,29 @@ const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
   );
 
   const guestLinks = (
-    <ul className='Navbar-links'>
+    <ul className='right'>
       <li>
-        <Link to='/bugs' className='Navbar-link'>
-          Bugs
-        </Link>
+        <Link to='/bugs'>Bugs</Link>
       </li>
       <li>
-        <Link to='/signup' className='Navbar-link'>
-          Sign up
-        </Link>
+        <Link to='/signup'>Sign up</Link>
       </li>
       <li>
-        <Link to='/signin' className='Navbar-link'>
-          Sign in
-        </Link>
+        <Link to='/signin'>Sign in</Link>
       </li>
     </ul>
   );
 
   return (
-    <nav className='Navbar'>
-      <h1 className='Navbar-brand'>
-        <Link to='/' className='Navbar-link'>
+    <nav>
+      <div className='nav-wrapper green darken-4'>
+        <Link to='/' className='brand-logo left'>
           Bug Tracker
         </Link>
-      </h1>
-      {!loading && (
-        <Fragment>{isAuthenticated ? authLinks : guestLinks}</Fragment>
-      )}
+        {!loading && (
+          <Fragment>{isAuthenticated ? authLinks : guestLinks}</Fragment>
+        )}
+      </div>
     </nav>
   );
 };
