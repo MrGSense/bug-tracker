@@ -31,60 +31,70 @@ const Signup = ({ register, isAuthenticated }) => {
   }
 
   return (
-    <div className='signupPage'>
-      <div className='signupPage-conent'>
-        <h1 className='signupPage-header'>Sign up</h1>
-        <p className='signupPage-lead'>Create your account</p>
-        <form className='signupPage-form' onSubmit={e => onSubmit(e)}>
-          <div className='signupPage-formgroup'>
+    <div className='page valign-wrapper green'>
+      <div className='container'>
+        <h1>Sign up</h1>
+        <Link
+          to='/signin'
+          className='waves-effect waves-light btn green darken-1'
+        >
+          Go to Sign in page
+        </Link>
+        <h3>Create your account</h3>
+        <form
+          className='card-panel green lighten-1'
+          onSubmit={e => onSubmit(e)}
+        >
+          <div className='input-field'>
+            <label htmlFor='name'>Name</label>
             <input
-              className='signupPage-input'
               type='text'
-              placeholder='Name'
               name='name'
+              id='name'
               value={name}
               onChange={e => onChange(e)}
               required
             />
           </div>
-          <div className='signupPage-formgroup'>
+          <div className='input-field'>
+            <label htmlFor='email'>Email address</label>
             <input
-              className='signupPage-input'
               type='text'
-              placeholder='Email address'
               name='email'
+              id='email'
               value={email}
               onChange={e => onChange(e)}
               required
             />
           </div>
-          <div className='signupPage-formgroup'>
+          <div className='input-field'>
+            <label htmlFor='password'>Password</label>
             <input
-              className='signupPage-input'
               type='password'
-              placeholder='Password'
               name='password'
+              id='password'
               value={password}
               onChange={e => onChange(e)}
               required
             />
           </div>
-          <div className='signupPage-formgroup'>
+          <div className='input-field'>
+            <label htmlFor='password2'>Confirm password</label>
             <input
-              className='signupPage-input'
               type='password'
-              placeholder='Confirm password'
               name='password2'
+              id='password2'
               value={password2}
               onChange={e => onChange(e)}
               required
             />
           </div>
-          <input type='submit' className='signupPage-submit' value='Sign up' />
+          <input
+            type='submit'
+            className='waves-effect waves-light btn green darken-1'
+            value='Sign up'
+          />
         </form>
-        <Link to='/signin' className='signupPage-link'>
-          Go to Sign in page
-        </Link>
       </div>
     </div>
   );

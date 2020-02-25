@@ -26,38 +26,48 @@ const Signin = ({ login, isAuthenticated }) => {
   }
 
   return (
-    <div className='signinPage'>
-      <div className='signinPage-conent'>
-        <h1 className='signinPage-header'>Sign in</h1>
-        <p className='signinPage-lead'>Login to your account</p>
-        <form className='signinPage-form' onSubmit={e => onSubmit(e)}>
-          <div className='signinPage-formgroup'>
+    <div className='page valign-wrapper green'>
+      <div className='container'>
+        <h1>Sign in</h1>
+        <Link
+          to='/signup'
+          className='waves-effect waves-light btn green darken-1'
+        >
+          Go to Sign up page
+        </Link>
+        <h3>Login to your account</h3>
+        <form
+          className='card-panel green lighten-1'
+          onSubmit={e => onSubmit(e)}
+        >
+          <div className='input-field'>
+            <label htmlFor='email'>Email address</label>
             <input
-              className='signinPage-input'
               type='text'
-              placeholder='Email address'
               name='email'
+              id='email'
               value={email}
               onChange={e => onChange(e)}
               required
             />
           </div>
-          <div className='signinPage-formgroup'>
+          <div className='input-field'>
+            <label htmlFor='password'>Password</label>
             <input
-              className='signinPage-input'
               type='password'
-              placeholder='Password'
               name='password'
+              id='password'
               value={password}
               onChange={e => onChange(e)}
               required
             />
           </div>
-          <input type='submit' className='signinPage-submit' value='Sign in' />
+          <input
+            type='submit'
+            className='waves-effect waves-light btn green darken-1'
+            value='Sign in'
+          />
         </form>
-        <Link to='/signup' className='signinPage-link'>
-          Go to Sign up page
-        </Link>
       </div>
     </div>
   );
