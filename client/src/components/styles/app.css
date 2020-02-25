@@ -19,4 +19,30 @@ body {
   min-height: 100vh;
   min-width: 100vw;
 }
+
+.input-field input {
+  border-bottom: 1px solid black !important;
+}
+
+.input-field textarea {
+  border: 1px solid black !important;
+}
+
+.input-field label {
+  color: black;
+}
+
+.input-field input[type="text"]:focus + label {
+  color: black;
+}
+
+.input-field input[type="text"]:focus {
+  border-bottom: 1px solid black;
+  -webkit-box-shadow: 0 1px 0 0 black;
+          box-shadow: 0 1px 0 0 black;
+}
+
+.input-field .prefix.active {
+  color: black;
+}
 /*# sourceMappingURL=app.css.map */
