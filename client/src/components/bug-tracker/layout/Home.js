@@ -7,7 +7,7 @@ const Home = () => {
       <div className='container'>
         <h1>Welcome to Bug Tracker</h1>
         <h4>Where you can share your coding bugs and get some input!</h4>
-        <div class='row'>
+        <div className='row'>
           <Link
             to='/bugs'
             className='col s4 waves-effect waves-light btn green darken-1'

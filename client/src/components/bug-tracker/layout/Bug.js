@@ -22,7 +22,7 @@ const Bug = ({ bug: { bug, loading }, auth, getBug, match }) => {
           <h1>Loading</h1>
         ) : (
           <div>
-            <div class='section'>
+            <div className='section'>
               <div className='card large green lighten-1'>
                 <div className='card-content'>
                   <h1>
