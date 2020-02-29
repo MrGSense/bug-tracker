@@ -1,9 +1,5 @@
-# See https://help.github.com/ignore-files/ for more about ignoring files.
-
-
-# may want to include if planning on deploying through github
-# dependencies
 node_modules
 
-# config
-config/dev.js
+dev.js
+
+dist
