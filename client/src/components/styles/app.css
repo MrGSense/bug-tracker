@@ -45,4 +45,10 @@ body {
 .input-field .prefix.active {
   color: black;
 }
+
+@media only screen and (max-width: 600px) {
+  .card {
+    height: 100% !important;
+  }
+}
 /*# sourceMappingURL=app.css.map */
