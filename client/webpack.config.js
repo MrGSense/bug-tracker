@@ -27,8 +27,8 @@ module.exports = {
         use: ["html-loader"]
       },
       {
-        test: /\.(png|jpe?g|gif|ico)$/i,
-        loader: "file-loader"
+        test: /\.jpe?g$|\.ico$|\.gif$|\.png$|\.svg$|\.woff$|\.ttf$|\.wav$|\.mp3$/,
+        loader: "file-loader?name=[name].[ext]"
       }
     ]
   },
